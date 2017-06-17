@@ -1,0 +1,27 @@
+{
+
+  "manifest_version": 2,
+  "name": "Image Scrubber",
+  "version": "1.0",
+
+  "description": "Blocks webpages by checking images on the page through Yahoo's nsfw classifer",
+  "icons": {
+  //  "48": "icons/beasts-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.mozilla.org/*"],
+      "js": ["jquery-3.2.1.min.js","RIP.min.js","nsfw_tester.js"]
+    }
+  ],
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "browser_action": {},
+
+  "web_accessible_resources": []
+
+}
