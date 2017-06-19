@@ -1,19 +1,21 @@
 // Isolate images on page
 // Sample ~5 of them
-var images = $("img").map(img => getBase64Image(img));
+var images = $.map($("img"), img => getBase64Image(img));
 
-alert("This script has run");
 // Send to classify webservice
 $.ajax({
   type: "POST",
-  url: "localhost",
-    data: JSON.stringify({"images": images}),
-  contentType: "application/json; charset=utf-8",
-  dataType: "json",
+  url: "http://localhost:8000",
+    data: JSON.stringify(images),
+  //contentType: "application/json; charset=utf-8", // causes requests to be preflighted
+  //dataType: "json",
   success: function (data) {
+    console.log(data)
     if(data.block){block();}
   },
-  error: function () {}
+  error: function (jqXHR, exception) {
+    alert(exception)
+  }
 });
 
 function getBase64Image(img){
