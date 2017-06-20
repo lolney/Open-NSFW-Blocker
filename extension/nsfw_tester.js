@@ -60,10 +60,10 @@ function showMessage(message){
   if(mbs.length == 0) {
     mb = $('<h1>', {id:"messagebox"});
     mb.css("text-align","center");
+    $("body").append(mb);
   } else {
-    mb = mbs[0];
+    mb = mbs;
   }
-  $("body").append(mb);
   mb.html(message);
   mb.show();
 }
