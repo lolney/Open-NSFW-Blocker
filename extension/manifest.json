@@ -16,8 +16,14 @@
     }
   ],
 
+  "background": {
+    "scripts": ["background.js"]
+  },
+
   "permissions": [
     "activeTab",
+    "webRequest",
+    "webRequestBlocking",
     "<all_urls>"
   ],
 
