@@ -1,10 +1,15 @@
+/*
+Currently, this will only run on the pages specified in the manifest
+*/
+
 toggleBlock();
 showMessage("Inspecting page");
 
 // Isolate images on page
 // Sample ~5 of them
-var sampled = sample($("img"), 4);
+var sampled = sample($("img"), 10);
 var images = $.map(sampled, img => getBase64Image(img));
+console.log("Testing")
 
 // Send to classify webservice
 $.ajax({
@@ -16,8 +21,10 @@ $.ajax({
   success: function (data) {
     var block = JSON.parse(data);
     if(block){
+      console.log("Blocking")
       showMessage("Sorry. This page isn't for you to see.");
     } else {
+      console.log("Allowing")
       toggleBlock();
     }
   },
@@ -27,7 +34,7 @@ $.ajax({
 });
 
 function sample(arr, n){
-  return arr.slice(0,n);
+  return _.sample(arr, n);
 }
 
 function getBase64Image(img){

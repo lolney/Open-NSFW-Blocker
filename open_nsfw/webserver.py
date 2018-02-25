@@ -10,9 +10,16 @@ def get_score(image):
 	pretrained_model = "nsfw_model/resnet_50_1by2_nsfw.caffemodel"
 
 	image_data = image.decode('base64');#fh.read();
-	score = classify(image_data, model_def, pretrained_model)[1]
-	print score
-	return score
+	with open("tempfile.png", "wb") as fh:
+		fh.write(image_data)
+
+	try:
+		score = classify(image_data, model_def, pretrained_model)[1]
+		print score
+		return score
+	except IOError: 
+		return 0
+	
 
 class ImageHandler(BaseHTTPRequestHandler):
 

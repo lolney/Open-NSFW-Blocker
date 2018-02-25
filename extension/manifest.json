@@ -11,8 +11,8 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.mozilla.org/*"],
-      "js": ["jquery-3.2.1.min.js","RIP.min.js","nsfw_tester.js"]
+      "matches": ["*://*.mozilla.org/*","*://*.pornhub.com/*","*://*.reddit.com/*"],
+      "js": ["jquery-3.2.1.min.js","RIP.min.js","underscore.js","nsfw_tester.js"]
     }
   ],
 
