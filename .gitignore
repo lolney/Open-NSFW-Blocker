@@ -1,2 +1,6 @@
 open_nsfw/test_images/
 todo.txt
+
+*.DS_Store
+
+*.pyc
