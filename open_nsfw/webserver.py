@@ -13,6 +13,7 @@ def get_score(image):
 	with open("tempfile.png", "wb") as fh:
 		fh.write(image_data)
 
+	# Doesn't work with certain image formats, like GIF
 	try:
 		score = classify(image_data, model_def, pretrained_model)[1]
 		print score
