@@ -1,18 +1,17 @@
 {
-
   "manifest_version": 2,
-  "name": "Image Scrubber",
+  "name": "NSFWBlocker",
   "version": "1.0",
 
-  "description": "Blocks webpages by checking images on the page through Yahoo's nsfw classifer",
+  "description": "Blocks pages based on their NSFW content",
   "icons": {
-  //  "48": "icons/beasts-48.png"
+    //  "48": "icons/beasts-48.png"
   },
 
   "content_scripts": [
     {
-      "matches": ["*://*.mozilla.org/*","*://*.pornhub.com/*","*://*.reddit.com/*"],
-      "js": ["jquery-3.2.1.min.js","RIP.min.js","underscore.js","nsfw_tester.js"]
+      "matches": ["<all_urls>"],
+      "js": []
     }
   ],
 
@@ -30,5 +29,4 @@
   "browser_action": {},
 
   "web_accessible_resources": []
-
 }
